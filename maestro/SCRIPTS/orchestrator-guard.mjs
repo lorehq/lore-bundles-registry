@@ -1,15 +1,13 @@
+// Orchestrator Guard — warn orchestrator/planner agents about direct file writes.
+
 import { readFileSync } from "fs";
 
 const input = JSON.parse(readFileSync("/dev/stdin", "utf8"));
 const tool = input.tool_name || "";
-const content = JSON.stringify(input.tool_input || {}).toLowerCase();
 
-// If an orchestrator/planner agent tries to write or edit files directly,
-// warn that orchestrators should delegate implementation to worker agents.
 const isWriteTool = tool === "Write" || tool === "Edit" || tool === "MultiEdit";
 
 if (isWriteTool) {
-  // Check if the current agent context suggests an orchestrator role
   const agentHints = [
     "orchestrat",
     "planner",
@@ -31,5 +29,4 @@ if (isWriteTool) {
   }
 }
 
-// Default: allow the tool use
 console.log(JSON.stringify({}));

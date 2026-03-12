@@ -1,9 +1,10 @@
+// Task Verification — remind to verify results after delegated task completes.
+
 import { readFileSync } from "fs";
 
 const input = JSON.parse(readFileSync("/dev/stdin", "utf8"));
 const tool = input.tool_name || "";
 
-// After a Task tool completes (delegated work), remind to verify the results.
 if (tool === "Task") {
   console.log(
     JSON.stringify({
@@ -13,6 +14,3 @@ if (tool === "Task") {
   );
   process.exit(0);
 }
-
-// Default: no additional context
-console.log(JSON.stringify({}));

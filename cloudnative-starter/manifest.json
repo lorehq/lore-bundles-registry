@@ -2,12 +2,25 @@
   "manifest_version": 1,
   "slug": "cloudnative-starter",
   "name": "CloudNative Starter",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Comprehensive development bundle — code review, TDD, architecture, security, build resolution, and workflow orchestration. Adapted from cloudnative-co/claude-code-starter-kit.",
   "hooks": {
-    "pre-tool-use": "HOOKS/pre-tool-use.mjs",
-    "post-tool-use": "HOOKS/post-tool-use.mjs",
-    "pre-compact": "HOOKS/pre-compact.mjs",
-    "stop": "HOOKS/stop.mjs"
+    "pre-tool-use": [
+      { "name": "Doc Blocker", "script": "SCRIPTS/doc-blocker.mjs" },
+      { "name": "Safety Net", "script": "SCRIPTS/safety-net.mjs" },
+      { "name": "Git Push Review", "script": "SCRIPTS/git-push-review.mjs" }
+    ],
+    "post-tool-use": [
+      { "name": "Console Log Guard", "script": "SCRIPTS/console-log-guard.mjs" },
+      { "name": "Prettier Format", "script": "SCRIPTS/prettier-format.mjs" },
+      { "name": "PR Creation Log", "script": "SCRIPTS/pr-creation-log.mjs" }
+    ],
+    "pre-compact": [
+      { "name": "Auto Commit", "script": "SCRIPTS/auto-commit.mjs" }
+    ],
+    "stop": [
+      { "name": "Console Log Check", "script": "SCRIPTS/console-log-check.mjs" },
+      { "name": "Uncommitted Changes", "script": "SCRIPTS/uncommitted-changes.mjs" }
+    ]
   }
 }
