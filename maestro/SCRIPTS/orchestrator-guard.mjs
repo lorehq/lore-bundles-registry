@@ -1,32 +1,30 @@
-// Orchestrator Guard — warn orchestrator/planner agents about direct file writes.
+// Orchestrator Guard — prevent orchestrator agents from editing files directly.
+// Translated from ReinaMacCredy/maestro .claude/scripts/orchestrator-guard.sh.
+// Original: PreToolUse(Write|Edit) checks CLAUDE_AGENT_NAME or agent_name in payload.
 
 import { readFileSync } from "fs";
 
 const input = JSON.parse(readFileSync("/dev/stdin", "utf8"));
 const tool = input.tool_name || "";
-
-const isWriteTool = tool === "Write" || tool === "Edit" || tool === "MultiEdit";
-
-if (isWriteTool) {
-  const agentHints = [
-    "orchestrat",
-    "planner",
-    "coordinator",
-    "delegat",
-  ];
-
-  const inputStr = JSON.stringify(input).toLowerCase();
-  const isOrchestrator = agentHints.some((hint) => inputStr.includes(hint));
-
-  if (isOrchestrator) {
-    console.log(
-      JSON.stringify({
-        additionalContext:
-          "Warning: Orchestrator/planner agents should delegate file modifications to implementation agents rather than writing directly. Consider using the Task tool to delegate this work.",
-      })
-    );
-    process.exit(0);
-  }
+if (tool !== "Write" && tool !== "Edit" && tool !== "MultiEdit") {
+  console.log(JSON.stringify({ decision: "allow" }));
+  process.exit(0);
 }
 
-console.log(JSON.stringify({}));
+// Check agent name from environment or payload
+const agentName = (
+  process.env.CLAUDE_AGENT_NAME ||
+  input.agent_name ||
+  (input.agent || {}).name ||
+  ""
+).toLowerCase();
+
+if (agentName === "orchestrator") {
+  console.log(JSON.stringify({
+    decision: "deny",
+    reason: "Orchestrator cannot edit files directly. Delegate to an implementation agent instead."
+  }));
+  process.exit(0);
+}
+
+console.log(JSON.stringify({ decision: "allow" }));

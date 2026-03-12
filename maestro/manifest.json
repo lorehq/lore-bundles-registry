@@ -2,14 +2,15 @@
   "manifest_version": 1,
   "slug": "maestro",
   "name": "Maestro",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Comprehensive development bundle — 60+ skills covering language patterns, testing, security, API design, deployment, and orchestration workflows. Adapted from ReinaMacCredy/maestro.",
   "hooks": {
     "pre-tool-use": [
       { "name": "Orchestrator Guard", "script": "SCRIPTS/orchestrator-guard.mjs" }
     ],
     "post-tool-use": [
-      { "name": "Task Verification", "script": "SCRIPTS/task-verification.mjs" }
+      { "name": "Verification Injector", "script": "SCRIPTS/verification-injector.mjs" },
+      { "name": "Error Detector", "script": "SCRIPTS/error-detector.mjs" }
     ]
   }
 }
