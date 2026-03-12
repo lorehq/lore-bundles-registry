@@ -2,6 +2,18 @@
 
 Comprehensive development bundle providing structured agents, skills, and rules for professional software engineering workflows.
 
+## What It Does
+
+Most AI coding sessions drift: the agent jumps straight into code, skips tests, produces a single massive commit, and misses security issues you only catch in review. CloudNative Starter imposes a professional development workflow that prevents this.
+
+When you start a feature, the planner agent analyzes your codebase, identifies affected components and risks, and produces a phased implementation plan with dependencies -- before any code is written. The tdd-guide agent enforces red-green-refactor: it writes failing tests first, implements minimally to pass them, then refactors, targeting 80%+ coverage. After implementation, the code-reviewer agent runs your diff through a checklist covering security (OWASP Top 10, hardcoded secrets, SQL injection), code quality (function size, nesting depth, dead code), and performance (algorithm complexity, N+1 queries, missing caching). A separate security-reviewer agent does a focused pass on authentication, input validation, and dependency vulnerabilities.
+
+Beyond agents, 13 hook scripts automate the tedious parts of a disciplined workflow. A safety net blocks dangerous tool calls (file deletions outside the project, writes to system paths). A doc blocker prevents edits to files marked read-only. An auto-formatter runs Prettier after every file write. A pre-compact hook auto-commits a checkpoint before context compaction so you never lose work. Session memory is saved on exit and restored on start, so context survives restarts.
+
+The bundle also includes 25 skills covering backend patterns, frontend patterns, TDD workflows, e2e testing with Playwright, code review checklists, security review procedures, refactoring workflows, and a full verification loop (build, types, lint, tests, security scan). The 8 rules enforce coding style, git workflow (conventional commits, atomic changes), testing standards, and performance guidelines across every session.
+
+If you want a single bundle that gives your AI agent the habits of a senior engineer -- plan first, test first, review everything, automate the guardrails -- this is it.
+
 ## Attribution
 
 Adapted from [cloudnative-co/claude-code-starter-kit](https://github.com/cloudnative-co/claude-code-starter-kit) (MIT License).

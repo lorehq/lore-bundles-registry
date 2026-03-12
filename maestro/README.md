@@ -2,6 +2,18 @@
 
 Multi-agent orchestration for autonomous feature development. Adapted from [ReinaMacCredy/maestro](https://github.com/ReinaMacCredy/maestro).
 
+## What It Does
+
+Maestro turns a feature request into a completed, tested, reviewed implementation -- using a team of specialized agents that coordinate themselves. Instead of one agent context-switching between planning, coding, testing, and reviewing, Maestro separates these concerns into distinct roles with enforced boundaries.
+
+You describe what you want built. The `/new-track` skill runs an interactive interview to produce a spec and phased plan, or `/design` does a deep 10-step discovery for complex features. Then `/implement` executes the plan. In single-agent mode, it works sequentially with TDD. In team mode, an orchestrator agent spawns parallel workers: kraken (TDD specialist -- writes failing tests, then implements), spark (quick fixes, single-file changes), and build-fixer (compile errors, lint failures). The orchestrator delegates but cannot edit files itself -- it verifies every result by re-reading files and re-running tests. Workers self-coordinate: they claim tasks, mark progress, and claim the next one without orchestrator micromanagement.
+
+What makes Maestro distinctive is the wisdom loop. During implementation, workers emit `<remember>` tags when they discover something non-obvious -- a codebase convention, a tricky API behavior, an architectural constraint. Hook scripts extract these into `.maestro/wisdom/` files. On the next session, context hooks inject accumulated wisdom into the orchestrator and workers. The team literally gets smarter over time, across sessions and across plans.
+
+Safety hooks enforce the orchestration model: the orchestrator is blocked from editing files (it must delegate), workers are blocked from editing plan files (only the orchestrator manages plans), dev servers are blocked in agent sessions, and workers are kept running until their tasks complete. Every tool use is logged to a trace file for auditability.
+
+The bundle ships with 71 skills spanning orchestration workflows and language-specific patterns for Go, Python, Swift, TypeScript, C++, Java, Django, and Spring Boot, plus 29 glob-scoped rules that activate only for the relevant language files.
+
 ## How Maestro Works
 
 Maestro turns a feature request into a completed implementation through three phases, using a `.maestro/` workspace directory to manage state.

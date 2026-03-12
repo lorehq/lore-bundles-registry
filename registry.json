@@ -15,6 +15,7 @@
       "description": "Comprehensive development bundle — code review, TDD, architecture, security, build resolution, and workflow orchestration",
       "repo": "https://github.com/lorehq/lore-bundles.git",
       "path": "cloudnative-starter",
+      "source": "https://github.com/cloudnative-co/claude-code-starter-kit",
       "author": "lorehq",
       "tags": ["development", "code-review", "tdd", "security", "community"]
     },
@@ -24,15 +25,17 @@
       "description": "5 cognitive firewall skills — adversarial review, creativity sampling, cross-verified research, pre-mortem analysis, and reasoning tracing",
       "repo": "https://github.com/lorehq/lore-bundles.git",
       "path": "stack-skills",
+      "source": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
       "author": "lorehq",
       "tags": ["cognitive", "reasoning", "analysis", "community"]
     },
     {
       "slug": "maestro",
       "name": "Maestro",
-      "description": "Comprehensive development bundle — 60+ skills covering language patterns, testing, security, API design, deployment, and orchestration",
+      "description": "Multi-agent orchestration — team-based feature development with parallel workers, TDD enforcement, and wisdom persistence",
       "repo": "https://github.com/lorehq/lore-bundles.git",
       "path": "maestro",
+      "source": "https://github.com/ReinaMacCredy/maestro",
       "author": "lorehq",
       "tags": ["development", "fullstack", "testing", "security", "community"]
     },
@@ -42,6 +45,7 @@
       "description": "Git workflow discipline — commit enforcement, execution planning, commit diaries, reconciliation audits, and multi-agent coordination",
       "repo": "https://github.com/lorehq/lore-bundles.git",
       "path": "dev-discipline",
+      "source": "https://github.com/ascode-com/ascode-co.dev-discipline",
       "author": "lorehq",
       "tags": ["git", "workflow", "discipline", "community"]
     }

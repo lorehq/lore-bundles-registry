@@ -2,6 +2,20 @@
 
 A Lore bundle converted from [hunterassembly/dev-discipline](https://github.com/hunterassembly/dev-discipline), licensed under MIT.
 
+## What It Does
+
+AI agents are productive but messy committers. They bundle unrelated changes into single commits, write vague messages like "update stuff," skip tests for behavioral changes, and leave documentation out of date. Dev Discipline fixes this by enforcing git workflow hygiene at every stage of the development process.
+
+The core `dev-discipline` skill installs git hooks (pre-commit, commit-msg, post-commit) that enforce the rules in real time. The pre-commit hook warns when staging too many files or when source changes lack corresponding test files. The commit-msg hook enforces conventional commit format (`type(scope): description`) and requires a `why:` line explaining the motivation -- not just the what. Every commit must address exactly one logical concern: no mixing refactors with features, no bundling formatting with bug fixes.
+
+The post-commit hook feeds into `dev-diary`, which automatically maintains a work log in `.dev/diary/`. Every commit appends an entry. The skill can then summarize a day's work, generate standup updates, or search the diary for past decisions.
+
+At the end of a session (or before a PR), the `dev-reconciliation` skill audits everything: it checks each commit for atomicity violations, identifies test gaps (new functions without tests, bug fixes without regression tests), flags stale documentation, and detects missing decision records. It also catches commits that bypassed hooks. The output is a structured reconciliation report with specific recommendations -- not auto-fixes, but a clear list of what needs attention.
+
+For teams running parallel agent workstreams, the `orchestrator` skill defines branching strategy, agent identity, and merge protocol. The `planner` skill enforces execution plans that follow the Codex Exec Plans standard, with validation scripts to check plan completeness.
+
+The bundle includes setup and teardown scripts, decision record templates, standup update templates, and a health-check script for one-shot local quality loops.
+
 ## What's Included
 
 Five skills with supporting scripts, templates, and assets:
