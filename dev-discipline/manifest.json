@@ -1,7 +1,0 @@
-{
-  "manifest_version": 1,
-  "slug": "dev-discipline",
-  "name": "Dev Discipline",
-  "version": "1.0.0",
-  "description": "Git workflow discipline — commit enforcement, execution planning, commit diaries, reconciliation audits, and multi-agent coordination."
-}

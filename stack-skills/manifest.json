@@ -1,7 +1,0 @@
-{
-  "manifest_version": 1,
-  "slug": "stack-skills",
-  "name": "Stack Skills",
-  "version": "2.0.0",
-  "description": "5 cognitive firewall skills — adversarial review, creativity sampling, cross-verified research, pre-mortem analysis, and reasoning tracing."
-}

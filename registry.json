@@ -13,8 +13,7 @@
       "slug": "cloudnative-starter",
       "name": "CloudNative Starter",
       "description": "Comprehensive development bundle — code review, TDD, architecture, security, build resolution, and workflow orchestration",
-      "repo": "https://github.com/lorehq/lore-bundles.git",
-      "path": "cloudnative-starter",
+      "repo": "https://github.com/lorehq/bundle-cloudnative-starter.git",
       "source": "https://github.com/cloudnative-co/claude-code-starter-kit",
       "author": "lorehq",
       "tags": ["development", "code-review", "tdd", "security", "community"]
@@ -23,8 +22,7 @@
       "slug": "stack-skills",
       "name": "Stack Skills",
       "description": "5 cognitive firewall skills — adversarial review, creativity sampling, cross-verified research, pre-mortem analysis, and reasoning tracing",
-      "repo": "https://github.com/lorehq/lore-bundles.git",
-      "path": "stack-skills",
+      "repo": "https://github.com/lorehq/bundle-stack-skills.git",
       "source": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
       "author": "lorehq",
       "tags": ["cognitive", "reasoning", "analysis", "community"]
@@ -33,8 +31,7 @@
       "slug": "maestro",
       "name": "Maestro",
       "description": "Multi-agent orchestration — team-based feature development with parallel workers, TDD enforcement, and wisdom persistence",
-      "repo": "https://github.com/lorehq/lore-bundles.git",
-      "path": "maestro",
+      "repo": "https://github.com/lorehq/bundle-maestro.git",
       "source": "https://github.com/ReinaMacCredy/maestro",
       "author": "lorehq",
       "tags": ["development", "fullstack", "testing", "security", "community"]
@@ -43,8 +40,7 @@
       "slug": "dev-discipline",
       "name": "Dev Discipline",
       "description": "Git workflow discipline — commit enforcement, execution planning, commit diaries, reconciliation audits, and multi-agent coordination",
-      "repo": "https://github.com/lorehq/lore-bundles.git",
-      "path": "dev-discipline",
+      "repo": "https://github.com/lorehq/bundle-dev-discipline.git",
       "source": "https://github.com/ascode-com/ascode-co.dev-discipline",
       "author": "lorehq",
       "tags": ["git", "workflow", "discipline", "community"]
